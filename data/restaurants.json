@@ -11,6 +11,13 @@
     "address": "Magusa",
     "cuisine": "Cyprus",
     "website": "https://NFC.com",
-    "description": "Very good price and teat \r\n"
+    "description": "Very good price and teat \n"
+  },
+  {
+    "name": "Burger",
+    "address": "US.home1",
+    "cuisine": "US",
+    "website": "https://us.com",
+    "description": "nice\n"
   }
 ]
