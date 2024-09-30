@@ -1,9 +1,12 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 
 app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
   const indexFilePath = path.join(__dirname, "Views", "index.html");
@@ -20,14 +23,29 @@ app.get("/recommend", function (req, res) {
   res.sendFile(recommendFilePath);
 });
 
-app.get("/about", function (req, res) {
-  const aboutFilePath = path.join(__dirname, "Views", "about.html");
-  res.sendFile(aboutFilePath);
+app.post("/recommend", function (req, res) {
+  const restaurant = req.body;
+  const DataFilePath = path.join(__dirname, "data", "restaurants.json");
+
+  const fileData = fs.readFileSync(DataFilePath);
+
+  const storedResturant = JSON.parse(fileData);
+
+  storedResturant.push(restaurant);
+
+  fs.writeFileSync(DataFilePath, JSON.stringify(storedResturant));
+
+  res.redirect("/confirm");
 });
 
 app.get("/confirm", function (req, res) {
   const confirmFilePath = path.join(__dirname, "Views", "confirm.html");
   res.sendFile(confirmFilePath);
+});
+
+app.get("/about", function (req, res) {
+  const aboutFilePath = path.join(__dirname, "Views", "about.html");
+  res.sendFile(aboutFilePath);
 });
 
 app.listen(3000);

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Test",
+    "address": "testStreer",
+    "cuisine": "KSA",
+    "website": "https://my.test.con",
+    "description": "wwwwwwwww"
+  },
+  {
+    "name": "NFC",
+    "address": "Magusa",
+    "cuisine": "Cyprus",
+    "website": "https://NFC.com",
+    "description": "Very good price and teat \r\n"
+  }
+]
