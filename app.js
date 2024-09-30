@@ -3,8 +3,11 @@ const path = require("path");
 
 const app = express();
 
+app.use(express.static("public"));
+
 app.get("/", function (req, res) {
-  res.send("<h1>Hello world!</h1>");
+  const indexFilePath = path.join(__dirname, "Views", "index.html");
+  res.sendFile(indexFilePath);
 });
 
 app.get("/restaurants", function (req, res) {
