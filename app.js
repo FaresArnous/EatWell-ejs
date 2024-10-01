@@ -26,6 +26,11 @@ app.get("/restaurants", function (req, res) {
     restaurants: storedResturant,
   });
 });
+//Dynamic Route
+app.get("/restaurants/:id", function (req, res) {
+  const restaurantId = req.params.id;
+  res.render("restaurants-details", { rid: restaurantId });
+});
 
 app.get("/recommend", function (req, res) {
   res.render("recommend");
