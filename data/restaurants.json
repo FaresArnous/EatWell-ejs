@@ -1,1 +1,37 @@
-[{"name":"Test","address":"testStreer","cuisine":"KSA","website":"https://my.test.con","description":"wwwwwwwww"},{"name":"NFC","address":"Magusa","cuisine":"Cyprus","website":"https://NFC.com","description":"Very good price and teat \n"},{"name":"Burger","address":"US.home1","cuisine":"US","website":"https://us.com","description":"nice\n"},{"name":"Miamy burger","address":"USA","cuisine":"American ","website":"https://miamy.com","description":"because it is good"},{"name":"Hello World","address":"GitHUb","cuisine":"Eg","website":"https://github.com","description":"none"}]
+[
+  {
+    "name": "Test",
+    "address": "testStreer",
+    "cuisine": "KSA",
+    "website": "https://my.test.con",
+    "description": "wwwwwwwww"
+  },
+  {
+    "name": "NFC",
+    "address": "Magusa",
+    "cuisine": "Cyprus",
+    "website": "https://NFC.com",
+    "description": "Very good price and teat \n"
+  },
+  {
+    "name": "Burger",
+    "address": "US.home1",
+    "cuisine": "US",
+    "website": "https://us.com",
+    "description": "nice\n"
+  },
+  {
+    "name": "Miamy burger",
+    "address": "USA",
+    "cuisine": "American ",
+    "website": "https://miamy.com",
+    "description": "because it is good"
+  },
+  {
+    "name": "Hello World",
+    "address": "GitHUb",
+    "cuisine": "Eg",
+    "website": "https://github.com",
+    "description": "none"
+  }
+]
