@@ -4,8 +4,8 @@ const fs = require("fs");
 
 const app = express();
 
-app.set("views", path.join(__dirname, "Views"));
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "Views"));
 
 app.use(express.static("public"));
 
@@ -16,7 +16,15 @@ app.get("/", function (req, res) {
 });
 
 app.get("/restaurants", function (req, res) {
-  res.render("restaurants");
+  const DataFilePath = path.join(__dirname, "data", "restaurants.json");
+
+  const fileData = fs.readFileSync(DataFilePath);
+
+  const storedResturant = JSON.parse(fileData);
+  res.render("restaurants", {
+    numberOfRestarents: storedResturant.length,
+    restaurants: storedResturant,
+  });
 });
 
 app.get("/recommend", function (req, res) {
