@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
+const uuid = require("uuid");
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -38,6 +40,7 @@ app.get("/recommend", function (req, res) {
 
 app.post("/recommend", function (req, res) {
   const restaurant = req.body;
+  restaurant.id = uuid.v4();
   const DataFilePath = path.join(__dirname, "data", "restaurants.json");
 
   const fileData = fs.readFileSync(DataFilePath);
