@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const uuid = require("uuid");
+const { restart } = require("nodemon");
 
 const app = express();
 
@@ -31,7 +32,18 @@ app.get("/restaurants", function (req, res) {
 //Dynamic Route
 app.get("/restaurants/:id", function (req, res) {
   const restaurantId = req.params.id;
-  res.render("restaurants-details", { rid: restaurantId });
+
+  const DataFilePath = path.join(__dirname, "data", "restaurants.json");
+
+  const fileData = fs.readFileSync(DataFilePath);
+
+  const storedResturant = JSON.parse(fileData);
+
+  for (const rertaurant of storedResturant) {
+    if (rertaurant.id === restaurantId) {
+      return res.render("restaurants-details", { restaurant: rertaurant });
+    }
+  }
 });
 
 app.get("/recommend", function (req, res) {
